@@ -1,0 +1,19 @@
+name: Disparar pruebas de automatización (Playwright)
+
+on:
+  push:
+    branches:
+      - main  # Cambia a las ramas que desees monitorear
+
+jobs:
+  trigger-automation:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Enviar evento al repositorio de automatización
+      - name: Disparar pruebas de automatización
+        run: |
+          curl -X POST -H "Authorization: token ${{ secrets.AUTOMATION_TOKEN }}" \
+               -H "Accept: application/vnd.github.everest-preview+json" \
+               https://api.github.com/repos/<tu-usuario>/<repo-automatizacion>/dispatches \
+               -d '{"event_type": "trigger-automation-tests"}'

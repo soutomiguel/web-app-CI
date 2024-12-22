@@ -15,5 +15,5 @@ jobs:
         run: |
           curl -X POST -H "Authorization: token ${{ secrets.AUTOMATION_TOKEN }}" \
                -H "Accept: application/vnd.github.everest-preview+json" \
-               https://api.github.com/repos/<tu-usuario>/<repo-automatizacion>/dispatches \
+               https://api.github.com/repos/<soutomiguel>/<playwright-CI-config>/dispatches \
                -d '{"event_type": "trigger-automation-tests"}'
